@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Lq2ftoiWoo70uIPOp47M9aapH5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dathev/PhD_Projects/4MOST/qso-bd-selection&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="" />
+      <created>1676584398831</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676584398831</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes.">
+      <created>1676585836905</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676585836906</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes.">
+      <created>1676586405349</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676586405349</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="d69444c0-e650-4ba8-b5b0-9f148033d7fb">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="d69444c0-e650-4ba8-b5b0-9f148033d7fb" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+  </component>
+</project>
