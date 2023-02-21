@@ -14,7 +14,7 @@ dir = os.path.abspath('input_test/')
 ############################################################################################################
 
 
-file = fits.open(dir+'cut_test_input.fits')  # open a FITS file
+file = fits.open(dir+'/cut_test_input.fits')  # open a FITS file
 
 hdr_o = file[0].header
 #list(hdr.keys())
