@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog_delve-qso_flux.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog_delve-qso_flux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/results_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sed_calculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_calculation.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
