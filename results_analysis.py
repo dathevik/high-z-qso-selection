@@ -60,7 +60,6 @@ for i in range(5): # ---- calculating the sum of similar outputs
         # plt.text(hist_qso[1][i], hist_qso[0][i], f"{per}%")
 plt.savefig(f"{output_path}/hist_bd.png")
 plt.close()
-
 # ------- Plot QSO_chi2 with R_chi2
 plt.scatter(QSO_Chi2, R_Chi2, s=10)
 plt.xlabel("χ2 of QSO")
