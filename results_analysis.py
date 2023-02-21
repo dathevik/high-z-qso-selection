@@ -1,4 +1,4 @@
-#----------- Making histogram from χ2 ratios calculated in quasar-selection.py 4MOST project script
+#----------- Making histogram from χ2 ratios calculated in sed_calculation.py 4MOST project script
 #----------- Analysing results of the testing and improvements
 
 from astropy.io import ascii
