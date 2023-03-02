@@ -4,13 +4,13 @@ import shutil
 from astropy.io import ascii, fits
 import numpy as np
 
-object_file = 'test_input.fits'
+object_file = 'fullcat307_315.fits'
 objects_path = os.path.abspath('input_test/' + object_file)
 output_folder = os.path.join(os.path.abspath(''), 'output_test')
 if os.path.exists(output_folder):
     shutil.rmtree(output_folder)
 os.mkdir(output_folder)
-output_file = os.path.abspath('input_test/' + f'cut_{object_file}')
+output_file = os.path.abspath(f'cut_{object_file}')
 print("READING OBJECTS:", objects_path, "FILE")
 data_obj = fits.open(objects_path)
 data_objects = data_obj[1].data
@@ -52,14 +52,14 @@ data_g_cut = data_pm_cut[mag_g_cond1 | mag_g_cond2 ]
 print('----------TABLE ROWS AFTER mag_auto_g CUTTING----------')
 print(len(data_g_cut))
 
-
 # ----------------------CONDITION 4 optional---------------------------
-# wise1 = data_g_cut['w1mpro']
-# wise2 = data_g_cut['w2mpro']
-# wise2_cond = wise2!=0
-# wise_cond = (wise1-wise2)>=-0.3
-# data_wise_cut = data_g_cut[~wise2_cond & ~wise_cond]
-# print('----------TABLE ROWS AFTER wise CUTTING----------')
-# print(len(data_wise_cut))
+wise1 = data_g_cut['w1mpro']
+wise2 = data_g_cut['w2mpro']
+#wise2_cond = wise2!=0
+wise_cond1 = (wise1+2.699)-(wise2+3.399)<= 0.6
+wise_cond2 = (wise1+2.699)-(wise2+3.399)>= -0.6
+data_wise_cut = data_g_cut[wise_cond1 & wise_cond2]
+print('----------TABLE ROWS AFTER wise CUTTING----------')
+print(len(data_wise_cut))
 
-fits.writeto(output_file, data_g_cut, overwrite=True)
+fits.writeto(output_file, data_wise_cut, overwrite=True)
