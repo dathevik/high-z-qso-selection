@@ -53,7 +53,7 @@ output_file = os.path.abspath('output_test/results.csv')
 
 
 # Input the information
-ls_id= input("Input the name of object ")
+ls_id = input("Input the name of object ")
 ls_id = int(ls_id)
 input_file_name = input("Input the name of catalog ")
 input_objects_path = os.path.abspath('input_test/'+input_file_name)

@@ -5,7 +5,7 @@ from astropy.io import ascii, fits
 import matplotlib.pyplot as plt
 import os
 
-object_file = 'results.fits'
+object_file = 'stripe82_qso_araa_results.fits'
 output_path = os.path.abspath('output_test')
 objects_path = os.path.abspath('output_test/' + object_file)
 hdu = fits.open(objects_path)
@@ -13,6 +13,8 @@ data_results = hdu[1].data
 BD_Chi2 = data_results.field(3)
 QSO_Chi2 = data_results.field(5)
 R_Chi2 = data_results.field(7)
+F_test = data_results.field(8)
+BIC = data_results.field(9)
 
 
 # ------- Histogram for χ2 ratios
@@ -42,11 +44,27 @@ plt.title("Histogram of BD χ2")
 plt.savefig(f"{output_path}/hist_bd.png")
 plt.close()
 
+# ------- Histogram for BIC
+hist_bic = plt.hist(BIC, bins=6, edgecolor='black')
+plt.xlabel("BIC")
+plt.ylabel("Sum of corresponding objects")
+plt.title("Histogram of BIC")
+plt.savefig(f"{output_path}/hist_bd.png")
+plt.close()
+
+# ------- Histogram for F test statistic
+hist_bic = plt.hist(F_test, bins=6, edgecolor='black')
+plt.xlabel("F test")
+plt.ylabel("Sum of corresponding objects")
+plt.title("Histogram of F test values")
+plt.savefig(f"{output_path}/hist_bd.png")
+plt.close()
+
 
 # ------- Plot QSO_chi2 with R_chi2
-plt.scatter(QSO_Chi2, R_Chi2, s=10)
+plt.scatter(QSO_Chi2, F_test, s=10)
 plt.xlabel("χ2 of QSO")
-plt.ylabel("χ2 Ratio")
+plt.ylabel("F test")
 # plt.title("Histogram of BD χ2")
 plt.savefig(f"{output_path}/r_chi2_qso_chi2.png")
 plt.close()

@@ -13,8 +13,8 @@ dir = os.path.abspath('input_test/')
 ############################################################################################################
 ############################################################################################################
 
-
-file = fits.open(dir+'/cut_test_input.fits')  # open a FITS file
+object_file = '/cut_fullcat345_360.fits'
+file = fits.open(dir+object_file)  # open a FITS file
 
 hdr_o = file[0].header
 #list(hdr.keys())
@@ -26,7 +26,7 @@ cols = t.columns
 #print(cols.names)
 
 
-for col in cols.names[4:]:
+for col in cols.names[1:21]:
 	if hasattr(t[col], "mask"):
 		t[col][t[col].mask] = np.nan
 	w = np.where((t[col] == -99.0) | (t[col] == 9999.0) | (t[col] < 0.) | (t[col] > 50.))
@@ -34,13 +34,13 @@ for col in cols.names[4:]:
 		t[col][w] = np.nan
 
 
-file.writeto(dir+"mag_ALL_nan.fits", overwrite=True)  ## create the new mag nan fits table
+file.writeto(dir+f"{object_file}_nan.fits", overwrite=True)  ## create the new mag nan fits table
 file.close()
 
 
 ##############
 
-f = fits.open(dir+'mag_ALL_nan.fits')  # open a FITS file
+f = fits.open(dir+f'{object_file}_nan.fits')  # open a FITS file
 
 hdr = f[0].header
 #list(hdr.keys())
@@ -50,7 +50,7 @@ cols = tbdata.columns
 cols.names
 
 
-id_list = tbdata['quick_object_id'][:] 
+id_list = tbdata['quick_object_id'][:]
 print('ids: ')
 print(len(id_list))
 
@@ -227,7 +227,7 @@ ascii.write([id_list, ra, dec, z,
 			gflux_mJy_delve, gerr_final_delve, rflux_mJy_delve, rerr_final_delve, iflux_mJy_delve, ierr_final_delve, zflux_mJy_delve, zerr_final_delve, 
 			yflux_mJy_vhs, yerr_final_vhs, jflux_mJy_vhs, jerr_final_vhs, hflux_mJy_vhs, herr_final_vhs, ksflux_mJy_vhs, kserr_final_vhs,
 			w1flux_mJy, w1err_final, w2flux_mJy, w2err_final], 
-            dir+'test_input_flux.dat',
+            dir+f'{object_file}_fluxes.dat',
             names=['#id', 'ra', 'dec', 'redshift', 
             	   'g_prime_delve', 'g_prime_err_delve', 'r_prime_delve', 'r_prime_err_delve', 'i_prime_delve', 'i_prime_err_delve', 'z_prime_delve', 'z_prime_err_delve',
             	   'vista.vircam.Y_vhs', 'vista.vircam.Y_err_vhs', 'vista.vircam.J_vhs', 'vista.vircam.J_err_vhs', 'vista.vircam.H_vhs', 'vista.vircam.H_err_vhs', 'vista.vircam.Ks_vhs', 'vista.vircam.Ks_err_vhs',  

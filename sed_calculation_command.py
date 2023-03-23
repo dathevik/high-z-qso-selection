@@ -2,8 +2,10 @@ import argparse
 import shutil
 import numpy as np
 import os
+import math
 from astropy.io import ascii, fits
 from astropy.table import Table
+
 
 
 # ------------------------------- Define functions ---------------------------------
@@ -22,6 +24,30 @@ def chi2_calc(vec_flux_obs, vec_fluxe_obs, vec_flux_model, a):
     chi2 = np.sum((vec_flux_obs - a * vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
     return chi2
 
+# function for calculation of number of freedom
+def num_free_calc(num_data, num_par_model1, num_par_model2, model1_chi2, model2_chi2):
+    num_diff = abs(num_par_model1 - num_par_model2)
+    if model1_chi2 > model2_chi2:
+        num_free = num_data - (num_par_model1 + (num_diff))
+    else:
+        num_free = num_data - (num_par_model2 + (num_diff))
+    return num_free
+
+
+# function for calculation of f-test statistical parameter and takes as an input of difference of number of parameters, chi2 of two models and the number of freedom
+def f_stat_calc(model1_chi2, model2_chi2, num_diff, num_free):
+    # ---- Obtain f-statistics from first checking which one is higher
+    if model1_chi2 > model2_chi2:
+        f_stat = ((abs(model1_chi2 - model2_chi2)/num_diff) / (model2_chi2/num_free))
+    else:
+        f_stat = ((abs(model2_chi2 - model1_chi2) / num_diff) / (model1_chi2 / num_free))
+    return f_stat
+
+# function for calculation of BIC statistical parameter and takes as an input of difference of number of parameters, chi2 and the number of data points
+def BIC_calc(chi2, num_diff, num_data):
+    # ---- Obtain BIC
+    BIC_stat = chi2 - (num_diff * (math.log(num_data)))
+    return BIC_stat
 
 # function for converting cgs parameters to mJy as the whole script works with mJy units of fluxes
 def flux_from_cgs_to_mJy(flux_cgs, ll):
@@ -31,10 +57,10 @@ def flux_from_cgs_to_mJy(flux_cgs, ll):
 
 EXAMPLES = """
 
-sed_calculation.py -i objects_file.dat
+python3.9 sed_calculation_command.py -i objects_file.dat
 
            """
-
+# function for running the code as a command in terminal giving as an input only the object file name
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description='''
@@ -191,6 +217,13 @@ if __name__ == '__main__':
     QSO_ebv_l = []
     QSO_temp_t = []
     ratio = []
+    BIC_array = []
+    F_test_l = []
+    num_points = []
+    qso_sels_par = 1
+    qso_matt_par = 3
+    bd_rob_par = 2
+    qso_par = []
 
     # V : Calculate Chi2 for BD and QSO templates
     for i in range(len(data_obj)):
@@ -217,6 +250,7 @@ if __name__ == '__main__':
         mask_nan = ~np.isnan(vec_flux_obs0)
         vec_flux_obs = vec_flux_obs0[mask_nan]
         vec_fluxe_obs = vec_fluxe_obs0[mask_nan]
+        print("FOR THIS OBJECT THE QUANTITY OF EXISTING FILTER FLUXES ARE", len(vec_flux_obs))
         # print(vec_flux_obs)
 
         # Va : Calculate scaling factor and Chi2 for BDs
@@ -259,20 +293,19 @@ if __name__ == '__main__':
         QSO_Chi2_min_z = QSO_z_vec[QSO_Chi2_min_ind]  # -- corresponding best template -> best redshift
         vec_flux_model_QSO_best = QSO_all_vec_flux[QSO_Chi2_min_ind][mask_nan] * a_QSO_best
         temp_ebv_best = QSO_temp_ebv[QSO_Chi2_min_ind]
-        temp_type_best = QSO_temp_type[QSO_Chi2_min_ind]
+        qso_temp_type_best = QSO_temp_type[QSO_Chi2_min_ind]
         temp_emline_best = QSO_temp_emline[QSO_Chi2_min_ind]
         print("-------------------------------------------------")
         print("Best Chi2 QSO:", QSO_Chi2_min)
         print("Which QSO redshift:", QSO_Chi2_min_z)
-        print("Which QSO template:", temp_type_best)
+        print("Which QSO template:", qso_temp_type_best)
         print("Which template emline:", temp_emline_best)
         print("Which template EBV:", temp_ebv_best)
         # ----Calculate the ratio of chi2 of each QSO and BD templates
         R = QSO_Chi2_min / BD_Chi2_min
         R_Chi.append(R)
         print("-------------------------------------------------")
-        print("The Chi2 ratio is", R)
-        print(R_Chi)
+        print("Chi2 ratio", R)
 
         # ---- Collect results of the calculation in one array and sort it in descending order of χ2_Ratio
         ls_id_l.append([obj_name[i]])
@@ -284,24 +317,56 @@ if __name__ == '__main__':
         QSO_emline_l.append(temp_emline_best)
         QSO_temp_t.append(QSO_temp_type)
         ratio.append(R)
+        num_points.append(len(vec_flux_obs))
+        if qso_temp_type_best == "Matt":
+            qso_par.append(qso_matt_par)
+        else:
+            qso_par.append(qso_sels_par)
 
-    ls_id_c = fits.Column(name='Object Name', array=ls_id_l, format='A20')
+        # VIc. Calculate F-test statistical value for each object
+        num_free_best = num_free_calc(num_points[i], qso_par[i], bd_rob_par, QSO_Chi2_min, BD_Chi2_min)
+        num_diff_best = abs(int(qso_par[i]) - bd_rob_par)
+        if num_free_best > 0:
+            F_test = f_stat_calc(QSO_Chi2_min, BD_Chi2_min, num_diff_best, num_free_best)
+            F_test_l.append(F_test)
+            print("-------------------------------------------------")
+            print("F test value:",  F_test)
+        else:
+            F_test = np.nan
+            F_test_l.append(F_test)
+            print("-------------------------------------------------")
+            print("F test value: There is no F test value")
+
+        # VId. Calculate BIC statistical value for each object
+        chi2_diff = abs(QSO_Chi2_min-BD_Chi2_min)
+        BIC_value = BIC_calc(chi2_diff, num_diff_best, num_points[i])
+        BIC_array.append(BIC_value)
+        print("-------------------------------------------------")
+        print("BIC QSO:", BIC_value)
+
+    ls_id_c = fits.Column(name='ls_id', array=ls_id_l, format='A20')
     ra_c = fits.Column(name='ra', array=ra, format='F')
     dec_c = fits.Column(name='dec', array=dec, format='F')
     BD_min_vec_c = fits.Column(name='BD_chi2_min', array=BD_min_vec, format='F')
     QSO_min_vec_c = fits.Column(name='QSO_chi2_min', array=QSO_min_vec, format='F')
     BD_Chi2_temp_c = fits.Column(name='BD chi2 template', array=BD_Chi2_temp_l, format='A10')
-    QSO_Chi2_temp_c = fits.Column(name='QSO z', array=QSO_Chi2_temp_l, format='F')
-    QSO_temp_type_c = fits.Column(name='QSO temptype', array=QSO_temp_t, format='A10')
-    QSO_ebv_c = fits.Column(name='QSO EBV', array=QSO_ebv_l, format='F')
-    QSO_emline_c = fits.Column(name='QSO  EMline', array=QSO_emline_l, format='F')
+    QSO_temp_type_c = fits.Column(name='QSO_temptype', array=QSO_temp_t, format='A10')
+    BIC_c = fits.Column(name='BIC_value', array=BIC_array, format='F')
+    F_test_c = fits.Column(name='F_test_value', array=F_test_l, format='F')
+    num_points_c = fits.Column(name='Data_Points', array=num_points, format='F')
+    num_par_c = fits.Column(name='QSO_Par', array=qso_par, format='F')
+    QSO_ebv_c = fits.Column(name='QSO_EBV', array=QSO_ebv_l, format='F')
+    QSO_Chi2_temp_c = fits.Column(name='QSO_z', array=QSO_Chi2_temp_l, format='F')
+    QSO_emline_c = fits.Column(name='QSO_EMline', array=QSO_emline_l, format='F')
     R_chi_c = fits.Column(name='R_chi2_best', array=ratio, format='F')
+
     t_out = fits.BinTableHDU.from_columns(
-        [ls_id_c, ra_c, dec_c, BD_min_vec_c, BD_Chi2_temp_c, QSO_min_vec_c, QSO_Chi2_temp_c, R_chi_c, QSO_ebv_c,
-         QSO_emline_c])
-    name_t_out = os.path.abspath(f'output_test/{obj_path}_results.fits')
-    name_t_out_csv = os.path.abspath(f'output_test/{obj_path}_results.csv')
+        [ls_id_c, ra_c, dec_c, BD_min_vec_c, BD_Chi2_temp_c, QSO_min_vec_c, QSO_Chi2_temp_c, R_chi_c, F_test_c, BIC_c, QSO_ebv_c,
+         QSO_emline_c, num_points_c, num_par_c])
+    name_t_out = os.path.abspath(f'output_test/{ra[0]}_results.fits')
+    name_t_out_csv = os.path.abspath(f'output_test/{ra[0]}_results.csv')
     t_out.writeto(name_t_out, overwrite=True)
     t_out.writeto(name_t_out_csv, overwrite=True)
+
 
 

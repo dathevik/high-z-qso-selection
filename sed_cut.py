@@ -1,10 +1,9 @@
 
 import os
 import shutil
-from astropy.io import ascii, fits
-import numpy as np
+from astropy.io import fits
 
-object_file = 'fullcat307_315.fits'
+object_file = 'fullcat345_360.fits'
 objects_path = os.path.abspath('input_test/' + object_file)
 output_folder = os.path.join(os.path.abspath(''), 'output_test')
 if os.path.exists(output_folder):
@@ -38,7 +37,7 @@ print(len(data_pmra_cut))
 pm_dec = data_pmra_cut['pmdec']
 pm_dec_err = data_pmra_cut['pmdec_error']
 pm_dec_R = pm_dec/pm_dec_err
-pm_dec_cond = abs(pm_dec_R)<2
+pm_dec_cond = abs(pm_dec_R)>2
 data_pm_cut = data_pmra_cut[~pm_dec_cond]
 print('----------TABLE ROWS AFTER pm_dec CUTTING----------')
 print(len(data_pm_cut))
@@ -47,8 +46,8 @@ print(len(data_pm_cut))
 mag_g = data_pm_cut['mag_auto_g']
 mag_g_cond1 = mag_g==0
 mag_g_cond2 = mag_g==99
-data_g_cut = data_pm_cut[mag_g_cond1 | mag_g_cond2 ]
-# data_g_delve_cut = data_g_delve_cut1 & data_g_delve_cut2
+data_g_cut = data_pm_cut[mag_g_cond1 | mag_g_cond2]
+#data_g_delve_cut = data_g_delve_cut1 & data_g_delve_cut2
 print('----------TABLE ROWS AFTER mag_auto_g CUTTING----------')
 print(len(data_g_cut))
 
@@ -56,8 +55,8 @@ print(len(data_g_cut))
 wise1 = data_g_cut['w1mpro']
 wise2 = data_g_cut['w2mpro']
 #wise2_cond = wise2!=0
-wise_cond1 = (wise1+2.699)-(wise2+3.399)<= 0.6
-wise_cond2 = (wise1+2.699)-(wise2+3.399)>= -0.6
+wise_cond1 = (wise1)-(wise2)<= 0.6
+wise_cond2 = (wise1)-(wise2)>= -0.6
 data_wise_cut = data_g_cut[wise_cond1 & wise_cond2]
 print('----------TABLE ROWS AFTER wise CUTTING----------')
 print(len(data_wise_cut))
