@@ -16,7 +16,7 @@ from synphot.models import Empirical1D
 # function for a_scale which is a scaling factor and takes as an input of observed flux, observed flux error of the object and the template model
 def a_scale(vec_flux_obs, vec_fluxe_obs, vec_flux_model):
     # ---- Obtain scaling factor for Chi2
-    a = np.sum((vec_flux_obs * vec_flux_model) / (vec_fluxe_obs) ** 2) / np.sum(
+    a = np.nansum((vec_flux_obs * vec_flux_model) / (vec_fluxe_obs) ** 2) / np.nansum(
         (vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
     return a
 
@@ -24,7 +24,7 @@ def a_scale(vec_flux_obs, vec_fluxe_obs, vec_flux_model):
 # function for calculation of chi2 statistical parameter and takes as an input of observed flux, observed flux error of the object and the template model and a scaling factor
 def chi2_calc(vec_flux_obs, vec_fluxe_obs, vec_flux_model, a):
     # ---- Obtain scaling factor for Chi2
-    chi2 = np.sum((vec_flux_obs - a * vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
+    chi2 = np.nansum((vec_flux_obs - a * vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
     return chi2
 
 
@@ -246,7 +246,7 @@ for i in range(len(id)):
 
         # VIb. Calculate the lowest value for the Chi2 for the QSOs
         QSO_Chi2_min = np.min(QSO_Chi2_array)  # -- minimum value
-        QSO_Chi2_min_ind = np.argmin(QSO_Chi2_array)  # -- position in array
+        QSO_Chi2_min_ind = np.argmin(QSO_Chi2_array)  # -- po11036800232067sition in array
         a_QSO_best = a_QSO_array[QSO_Chi2_min_ind]  # -- corresponding scaling factor of the best chi2
         QSO_Chi2_min_z = QSO_z_vec[QSO_Chi2_min_ind]  # -- corresponding best template -> best redshift
         vec_flux_model_QSO_best = QSO_all_vec_flux[QSO_Chi2_min_ind][mask_nan] * a_QSO_best
@@ -339,7 +339,7 @@ for i in range(len(id)):
             plt.ylabel("Flux (mJy)")
             plt.xlim(0, 55000)
             plt.title(f"BD and QSO models comparison with {ls_id} object")
-            plt.savefig(f"output_test/{ls_id}_BD_QSO_best_models.png", dpi=160, overwrite=True)
+            plt.savefig(f"output_test/{ls_id}_BD_QSO_best_models.png", dpi=160)
             plt.close()
         # else:print(f"{ls_id} OBJECT is NOT FOUND in {input_file_name} CATALOG")
 #

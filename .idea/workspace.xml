@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog_delve-qso_flux.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog_delve-qso_flux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/results_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sed_calculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_calculation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sed_calculation_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_calculation_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sed_cut.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_cut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sed_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_plot.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +36,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dathev/PhD_Projects/4MOST/qso-bd-selection&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dathev/PycharmProjects/qso-bd-selection&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
 }</component>
@@ -54,7 +64,35 @@
       <option name="project" value="LOCAL" />
       <updated>1676586405349</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+      <created>1677724767253</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677724767255</updated>
+    </task>
+    <task id="LOCAL-00004" summary="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+      <created>1677724942157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677724942157</updated>
+    </task>
+    <task id="LOCAL-00005" summary="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+      <created>1677724985935</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677724985935</updated>
+    </task>
+    <task id="LOCAL-00006" summary="With this commit you can run it with terminal command using the following command in the same directory as the python sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+      <created>1679579466217</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679579466217</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +142,18 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
+    <MESSAGE value="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
+    <MESSAGE value="With this commit you can run it with terminal command using the following command in the same directory as the python sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
+    <option name="LAST_COMMIT_MESSAGE" value="With this commit you can run it with terminal command using the following command in the same directory as the python sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Candidate_selection.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

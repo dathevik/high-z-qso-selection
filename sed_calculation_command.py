@@ -13,7 +13,7 @@ from astropy.table import Table
 # function for a_scale which is a scaling factor and takes as an input of observed flux, observed flux error of the source and the template model
 def a_scale(vec_flux_obs, vec_fluxe_obs, vec_flux_model):
     # ---- Obtain scaling factor for Chi2
-    a = np.sum((vec_flux_obs * vec_flux_model) / (vec_fluxe_obs) ** 2) / np.sum(
+    a = np.nansum((vec_flux_obs * vec_flux_model) / (vec_fluxe_obs) ** 2) / np.nansum(
         (vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
     return a
 
@@ -21,7 +21,7 @@ def a_scale(vec_flux_obs, vec_fluxe_obs, vec_flux_model):
 # function for calculation of chi2 statistical parameter and takes as an input of observed flux, observed flux error of the source and the template model and a scaling factor
 def chi2_calc(vec_flux_obs, vec_fluxe_obs, vec_flux_model, a):
     # ---- Obtain scaling factor for Chi2
-    chi2 = np.sum((vec_flux_obs - a * vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
+    chi2 = np.nansum((vec_flux_obs - a * vec_flux_model) ** 2 / (vec_fluxe_obs) ** 2)
     return chi2
 
 # function for calculation of number of freedom
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     output_folder = os.path.join(os.path.abspath(''), 'output_test')
     # if os.path.exists(output_folder):
     #    shutil.rmtree(output_folder)
-    # os.mkdir(output_folder)
+    #os.mkdir(output_folder)
 
     # ----------------- Printing and reading files -----------------
     print("READING BD:", BD_temp_path, "FILE")
@@ -338,7 +338,7 @@ if __name__ == '__main__':
             print("F test value: There is no F test value")
 
         # VId. Calculate BIC statistical value for each object
-        chi2_diff = abs(QSO_Chi2_min-BD_Chi2_min)
+        chi2_diff = (BD_Chi2_min - QSO_Chi2_min)
         BIC_value = BIC_calc(chi2_diff, num_diff_best, num_points[i])
         BIC_array.append(BIC_value)
         print("-------------------------------------------------")
@@ -363,8 +363,8 @@ if __name__ == '__main__':
     t_out = fits.BinTableHDU.from_columns(
         [ls_id_c, ra_c, dec_c, BD_min_vec_c, BD_Chi2_temp_c, QSO_min_vec_c, QSO_Chi2_temp_c, R_chi_c, F_test_c, BIC_c, QSO_ebv_c,
          QSO_emline_c, num_points_c, num_par_c])
-    name_t_out = os.path.abspath(f'output_test/{ra[0]}_results.fits')
-    name_t_out_csv = os.path.abspath(f'output_test/{ra[0]}_results.csv')
+    name_t_out = os.path.abspath(f'output_test/{argument}_results.fits')
+    name_t_out_csv = os.path.abspath(f'output_test/{argument}_results.csv')
     t_out.writeto(name_t_out, overwrite=True)
     t_out.writeto(name_t_out_csv, overwrite=True)
 

@@ -3,7 +3,7 @@ import os
 import shutil
 from astropy.io import fits
 
-object_file = 'fullcat345_360.fits'
+object_file = 'ARAA_4MOST.fits'
 objects_path = os.path.abspath('input_test/' + object_file)
 output_folder = os.path.join(os.path.abspath(''), 'output_test')
 if os.path.exists(output_folder):

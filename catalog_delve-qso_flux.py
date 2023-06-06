@@ -13,7 +13,7 @@ dir = os.path.abspath('input_test/')
 ############################################################################################################
 ############################################################################################################
 
-object_file = '/cut_fullcat345_360.fits'
+object_file = '/cut_fullcat_empty.fits'
 file = fits.open(dir+object_file)  # open a FITS file
 
 hdr_o = file[0].header
@@ -224,13 +224,13 @@ w2flux_mJy, w2err_final = mag_to_flux(W2_ABmag, tbdata['w2sigmpro'][:])
             	   
 
 ascii.write([id_list, ra, dec, z, 
-			gflux_mJy_delve, gerr_final_delve, rflux_mJy_delve, rerr_final_delve, iflux_mJy_delve, ierr_final_delve, zflux_mJy_delve, zerr_final_delve, 
+			gflux_mJy_delve, gerr_final_delve, rflux_mJy_delve, rerr_final_delve, iflux_mJy_delve, ierr_final_delve, zflux_mJy_delve, zerr_final_delve,
 			yflux_mJy_vhs, yerr_final_vhs, jflux_mJy_vhs, jerr_final_vhs, hflux_mJy_vhs, herr_final_vhs, ksflux_mJy_vhs, kserr_final_vhs,
 			w1flux_mJy, w1err_final, w2flux_mJy, w2err_final], 
             dir+f'{object_file}_fluxes.dat',
             names=['#id', 'ra', 'dec', 'redshift', 
             	   'g_prime_delve', 'g_prime_err_delve', 'r_prime_delve', 'r_prime_err_delve', 'i_prime_delve', 'i_prime_err_delve', 'z_prime_delve', 'z_prime_err_delve',
-            	   'vista.vircam.Y_vhs', 'vista.vircam.Y_err_vhs', 'vista.vircam.J_vhs', 'vista.vircam.J_err_vhs', 'vista.vircam.H_vhs', 'vista.vircam.H_err_vhs', 'vista.vircam.Ks_vhs', 'vista.vircam.Ks_err_vhs',  
+            	   'vista.vircam.Y_vhs', 'vista.vircam.Y_err_vhs', 'vista.vircam.J_vhs', 'vista.vircam.J_err_vhs', 'vista.vircam.H_vhs', 'vista.vircam.H_err_vhs', 'vista.vircam.Ks_vhs', 'vista.vircam.Ks_err_vhs',
                    'WISE1', 'WISE1_err', 'WISE2', 'WISE2_err'],  
                    overwrite=True)
          

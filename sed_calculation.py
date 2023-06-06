@@ -33,19 +33,20 @@ def flux_from_cgs_to_mJy(flux_cgs, ll):
 
 # ------------------------------- Main code ---------------------------------
 # I: Define the path and print the data in the created directory
-obj_path = os.path.abspath('input_test/input_stripe82_ARAA.dat')
+obj_path = os.path.abspath('input_test/test_no_fit.dat')
 BD_temp_path = os.path.abspath('input_test/BDRA_fluxes_mJy_202301.dat')
 QSO_temp_path = os.path.abspath('input_test/Selsing+Matt_temp.dat')
 QSO_spec_path = os.path.abspath('input_test/Selsing2015.dat')
 output_folder = os.path.join(os.path.abspath(''), 'output_test')
-if os.path.exists(output_folder):
-    shutil.rmtree(output_folder)
-os.mkdir(output_folder)
+#if os.path.exists(output_folder):
+ #   shutil.rmtree(output_folder)
+#os.mkdir(output_folder)
 
 # ----------------- Printing and reading files -----------------
 print("READING BD:", BD_temp_path, "FILE")
 data_bd_temp = ascii.read(BD_temp_path)
 # print(data_bd_temp)
+
 
 print("READING QSOs:", QSO_temp_path, "FILE")
 data_qso_temp = ascii.read(QSO_temp_path)
