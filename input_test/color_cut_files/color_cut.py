@@ -89,9 +89,9 @@ print('i-z is',y_mag_bd)
 sels_path = os.path.abspath('Selsing2015_fluxes_mJy_202301.dat')
 data_sels = ascii.read(sels_path)
 redshift_sels = data_sels.columns[1]
-r_decam_flux_sels = data_araa.columns[3]
-i_decam_flux_sels = data_araa.columns[4]
-z_decam_flux_sels = data_araa.columns[5]
+r_decam_flux_sels = data_sels.columns[3]
+i_decam_flux_sels = data_sels.columns[4]
+z_decam_flux_sels = data_sels.columns[5]
 r_decam_mag_sels = flux_to_mag(r_decam_flux_sels, flux_zero_r)
 i_decam_mag_sels = flux_to_mag(i_decam_flux_sels, flux_zero_I)
 z_decam_mag_sels = flux_to_mag(z_decam_flux_sels, flux_zero_z)
@@ -103,9 +103,9 @@ y_mag_sels = i_decam_mag_sels - z_decam_mag_sels
 roberto_path = os.path.abspath('BDRA_fluxes_mJy_202301.dat')
 data_roberto = ascii.read(roberto_path)
 # redshift_sels = data_sels.columns[1]
-r_decam_flux_rob = data_araa.columns[2]
-i_decam_flux_rob = data_araa.columns[3]
-z_decam_flux_rob = data_araa.columns[4]
+r_decam_flux_rob = data_roberto.columns[2]
+i_decam_flux_rob = data_roberto.columns[3]
+z_decam_flux_rob = data_roberto.columns[4]
 r_decam_mag_rob = flux_to_mag(r_decam_flux_rob, flux_zero_r)
 i_decam_mag_rob = flux_to_mag(i_decam_flux_rob, flux_zero_I)
 z_decam_mag_rob = flux_to_mag(z_decam_flux_rob, flux_zero_z)
@@ -113,21 +113,22 @@ x_mag_rob = r_decam_mag_rob - i_decam_mag_rob
 y_mag_rob = i_decam_mag_rob - z_decam_mag_rob
 print('------------------ Brown Dwarf template r-i and i-z -------------------\n')
 print('r-i', x_mag_rob)
-print('i-z is',y_mag_rob)
-
+print('i-z is', y_mag_rob)
 
 # plotting everything together as subplots
-fig, ax = plt.subplots(2, figsize=(10, 7))
+fig, ax = plt.subplots(2, figsize=(13, 8))
 plot_template('qsogen_mags_emlines2.0_ebv+025.dat')
 plot_template('qsogen_mags_emlines2.0_ebv+000.dat')
 plot_template('qsogen_mags_emlines-2.0_ebv+025.dat')
 plot_template('qsogen_mags_emlines-2.0_ebv+000.dat')
 plt.xlabel('r-i')
 plt.ylabel('i-z')
-ax[1].legend()
 ax[1].plot(x_mag_sels, y_mag_sels, color='darkgreen', label='Selsing templates')
 ax[1].plot(x_mag_rob, y_mag_rob, color='darkblue', label='BD templates')
+plt.xlim(-1, 3)
 ax[0].scatter(x_mag_bd, y_mag_bd, s=8, color='saddlebrown', label='known brown dwarfs')
 ax[0].scatter(x_mag_qso, y_mag_qso, s=8, color='khaki', label='known quasars')
+ax[1].legend()
 ax[0].legend()
 plt.savefig('plots/all_temp+bd+qso_datapoints.png', dpi=400)
+
