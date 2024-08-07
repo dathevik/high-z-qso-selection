@@ -1,10 +1,12 @@
 
 import os
 import shutil
+
+import numpy as np
 from astropy.io import fits
 
-object_file = 'ARAA_4MOST.fits'
-objects_path = os.path.abspath('input_test/' + object_file)
+object_file = 'fullcat_viking_second_area.fits'
+objects_path = os.path.abspath('results_4most/ARAA/' + object_file)
 output_folder = os.path.join(os.path.abspath(''), 'output_test')
 if os.path.exists(output_folder):
     shutil.rmtree(output_folder)
@@ -54,10 +56,19 @@ print(len(data_g_cut))
 # ----------------------CONDITION 4 optional---------------------------
 wise1 = data_g_cut['w1mpro']
 wise2 = data_g_cut['w2mpro']
-#wise2_cond = wise2!=0
-wise_cond1 = (wise1)-(wise2)<= 0.6
-wise_cond2 = (wise1)-(wise2)>= -0.6
-data_wise_cut = data_g_cut[wise_cond1 & wise_cond2]
+# wise1 = data_pm_cut['WISE1']
+# wise2 = data_pm_cut['WISE2']
+wise1_cond0 = np.isnan(wise1)
+wise2_cond0 = np.isnan(wise2)
+# wise_cond1 = (wise1+2.699) - (wise2+3.399) <= 0.6
+# wise_cond2 = (wise1+2.699) - (wise2+3.399) >= -0.6
+wise_cond1 = (wise1+2.699) - (wise2+3.399) <= 0.6
+wise_cond2 = (wise1+2.699) - (wise2+3.399) >= -0.6
+
+data_wise_cut = data_g_cut[wise_cond1 & wise_cond2 | wise1_cond0 | wise2_cond0]
+# data_wise_cut = data_pm_cut[wise_cond1 & wise_cond2]
+# data_wise_empty = data_pm_cut[wise1_cond0 & wise2_cond0]
+
 print('----------TABLE ROWS AFTER wise CUTTING----------')
 print(len(data_wise_cut))
 

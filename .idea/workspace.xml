@@ -4,10 +4,209 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats.">
+    <list default="true" id="2e80936c-1afd-4e14-8d80-9141481e15d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/input_test/ARAA_4MOST.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/ARAA_decals_vhs_wise_fluxes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BDRACM_fluxes_mJy.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_DECALS_BIC_test.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/BDcolors_Sk15tab1_LD.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/BDcolors_Sk15tab1_MD.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/BDcolors_Sk15tab1_TD.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/CM_temp_fluxes_mJy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/CTIO_DECam_g.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/CTIO_DECam_i.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/CTIO_DECam_r.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/CTIO_DECam_z.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/.smhist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/Lmag1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/Lmag2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/mldwarfnirstd.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/LDwarf/specs/L9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/L_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/L_type_wise_g_r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/Mmag1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/Mmag2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/mdwarfstd.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/MDwarf/specs/M9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/M_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/M_type_wise_g_r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/Paranal_VISTA_H.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/Paranal_VISTA_J.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/Paranal_VISTA_Ks.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/Paranal_VISTA_Y.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/RAssef/BDRA_fluxes_mJy.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/RAssef/BDRA_fluxes_mJy_202301.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/RAssef/lrt_a07_BDs.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/SED_filters.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/.smhist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/Tmag1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/Tmag2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/specs/T8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/TDwarf/tdwarfstd.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/T_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/T_type_wise_g_r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/UKIRT_UKIDSS_K.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/BDspectra/get_filter_mag.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/results/ARAA_CM_decals_all_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/results/ARAA_RA_decals_all_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/results/BD_CM_decals_all_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/BD_templates_empirical_CM/results/BD_RA_decals_all_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/ARAA_4MOST.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/ARAA_4MOST_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/ARAA_4MOST_results.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/ARAA_4MOST_test.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/ARAA_quasars.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/BD_all" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/BD_all_DECALS_SpT_result.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/List_of_LT_Dwarfs.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/List_of_M_Dwarfs.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/bd_stripe82_all_fluxes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/flux_BD_delve_test_results.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/flux_BD_delve_test_results.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/input_stripe82_ARAA.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/milliquas_z4.5.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Known qso and bd/yang_400_desi_quasars.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Matt_temp.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/Selsing_temp.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/color_cut_files/plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/QSO_BD_extended_z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/delve_class_z_araa.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/delve_class_z_bd.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/delve_class_z_milliquas.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/delve_class_z_yang.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/extended_class/extended_class_cut.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/BD_QSO_mag_g_hist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/BD_QSO_mag_g_snr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/delve_araa_g_band.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/delve_bd_g_band.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/delve_miliquas_g_band.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/delve_yang_g_band.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/g_band_delve_cut.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_decals.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_decals_clean" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_des.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_des_clean" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_gaia.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/prior1_racs_clean" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/g_band_detection/priority1_v2.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_g_i_decals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_g_r_decals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_g_z_decals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_g_z_g_i_decals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_mag_g_snr_decals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_snr_g_i_cut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/BD_QSO_snr_g_z_cut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/araa_decals.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/bd_decals.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/decals_color_cut.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/milliquas_decals.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/new_decals_cut/yang_decals.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/QSO_BD_pm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/combined_results_gaia_bd.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/combined_results_gaia_milliquas.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/combined_results_gaia_yang.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/pm_cut.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/proper_motion_araa.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/proper_motion_bd.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/proper_motion_milliquas.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/proper_motion/proper_motion_yang.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/BD_wise_SpT.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/BD_wise_SpT.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/BD_wise_colors copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/BD_wise_colors.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/L_type_wise.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/L_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/M_type_wise.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/M_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_BD_wise_colors.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_milliquas_wise.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_milliquas_wise.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_wise_spec.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_wise_spec.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/QSO_yang_wise.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/Quasar_wise_colors.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/T_type_wise.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/T_type_wise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input_test/cutting_initial_contaminants/wise_cut/wise_cut_scatter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_BD_empirical.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/BD_query/BD_decals_vhs_wise.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/BD_query/BD_decals_vhs_wise_fluxes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/BD_query/BD_decals_vhs_wise_results.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_4MOST.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_decals_vhs_wise.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_decals_vhs_wise_fluxes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_decals_vhs_wise_nan.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_decals_vhs_wise_results.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/ARAA_decals_vhs_wise_results_spec.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/combined_results_decals_araa.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/combined_results_yang_decals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/QSO_query/milliquas_z4.5_wise.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/RACS_results/RACS_UDP_candidates_decals_ebv.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/RACS_results/racs_sample_decals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/RACS_results/racs_sample_ebv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/ARAA_all.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/BD_all" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/BD_all.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/BD_all.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/EBV_query_decals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/UDP_xRACS_ra_0_360.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/araa_quasars.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/milliquas_z4.5.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/prioritization_1_new_cleaned.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/prioritization_1_with_ebv.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/query_table_delve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/search_gaia_cm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/query/input_tables/yang_400_desi_quasars.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/Radio/UDP_xRACS_ra_0_360.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/RACS_sky_z_cut.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/UDP_PUC_sky_z_cut.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/observation_list_racs_udp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/observation_list_racs_udp.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/racs_4most.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/racs_4most.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/racs_observe_cut.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/racs_observe_cut_i_z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/observation_La_Silla_2023/racs_observe_cut_r_i.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/ARAA_4MOST_results..fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/ARAA_all_S0604_match.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/README_prioritization_delve_decals.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/prioritization_1_new_cleaned.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/prioritization_1_new_ebv_snr_decals_cut.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/prioritization_1_new_final_cuts_delve.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/prioritization_delve_decals_cuts.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results_4most/results_files/prioritization_delve_decals_cuts.fits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sed_calculation_BD_empirical.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sed_plot_BD_spectra_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog_delve-qso_flux.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog_delve-qso_flux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/BDRA_fluxes_mJy_202301.dat" beforeDir="false" afterPath="$PROJECT_DIR$/input_test/BDRA_fluxes_mJy_202301.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/color_cut_files/araa_delve_query.dat" beforeDir="false" afterPath="$PROJECT_DIR$/input_test/color_cut_files/araa_delve_query.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/color_cut_files/color_cut.py" beforeDir="false" afterPath="$PROJECT_DIR$/input_test/color_cut_files/color_cut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/color_cut_files/plots/all_temp+bd+qso_datapoints.png" beforeDir="false" afterPath="$PROJECT_DIR$/input_test/color_cut_files/plots/all_temp+bd+qso_datapoints.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/seds2/._qsogen_sed_emlines-2.0_ebv+000_z+450.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/seds2/._qsogen_sed_emlines-2.0_ebv+000_z+455.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_test/seds2/._qsogen_sed_emlines0.0_ebv+000_z+450.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/results_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/results_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sed_calculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_calculation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sed_calculation_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/sed_calculation_command.py" afterDir="false" />
@@ -21,6 +220,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -92,7 +292,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679579466217</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary=" New version of High_z_qso_candidates catalog added&#10;    &#10;    - more tests with known QSOs (Fan+2022,Flesch+2023,Yang+2023)&#10;    - more tests with known BDs (Bañados+2016)&#10;    - SED tests with empirical templates of BDs (provided from CM)&#10;    - new initial contaminant cut tests and implementation (E(B-V), color cuts with DECALS DR10)&#10;    - new SED fitting using DECALS DR10 photometry (new changes) and DELVE DR2 photometry (as it was before)&#10;    &#10;    New folders created&#10;    - spectra and colors of new empirical templates&#10;    - several test codes&#10;    - query codes and results for DECALS DR10&#10;    - query tables of all known QSOs and BDs with different photometry, E(B-V)&#10;    - cutting initial contaminants analysis for each cutting conditions&#10;    - some modification on SED fitting code itself&#10;    - new catalog version ----&gt; results_4most/prioritization_delve_decals_cuts.dat or .fits (with README_prioritization_delve_decals.txt)">
+      <created>1723047836806</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723047836806</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" New version of High_z_qso_candidates catalog added&#10;    &#10;    - more tests with known QSOs (Fan+2022,Flesch+2023,Yang+2023)&#10;    - more tests with known BDs (Bañados+2016)&#10;    - SED tests with empirical templates of BDs (provided from CM)&#10;    - new initial contaminant cut tests and implementation (E(B-V), color cuts with DECALS DR10)&#10;    - new SED fitting using DECALS DR10 photometry (new changes) and DELVE DR2 photometry (as it was before)&#10;    &#10;    New folders created&#10;    - spectra and colors of new empirical templates&#10;    - several test codes&#10;    - query codes and results for DECALS DR10&#10;    - query tables of all known QSOs and BDs with different photometry, E(B-V)&#10;    - cutting initial contaminants analysis for each cutting conditions&#10;    - some modification on SED fitting code itself&#10;    - new catalog version ----&gt; results_4most/prioritization_delve_decals_cuts.dat or .fits (with README_prioritization_delve_decals.txt)">
+      <created>1723048330672</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723048330672</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,7 +358,8 @@
     <MESSAGE value="initial commit&#10;Working code both for sed_cutting and sed_calculation of the best QSO_chi2 and BD_chi2. Working plot file to plot the source as an output png in output_test directory. Also the code that converts magnitudes to fluxes." />
     <MESSAGE value="With this commit you can run it with terminal command using the following command in the same directory as the sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
     <MESSAGE value="With this commit you can run it with terminal command using the following command in the same directory as the python sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
-    <option name="LAST_COMMIT_MESSAGE" value="With this commit you can run it with terminal command using the following command in the same directory as the python sed_calculation.py &#10;&quot;sed_calculation.py -i objects_file.dat&quot;&#10;&#10;It will automatically run on the whole .dat objects list giving you the output in the output_test both with .fits and .csv formats." />
+    <MESSAGE value=" New version of High_z_qso_candidates catalog added&#10;    &#10;    - more tests with known QSOs (Fan+2022,Flesch+2023,Yang+2023)&#10;    - more tests with known BDs (Bañados+2016)&#10;    - SED tests with empirical templates of BDs (provided from CM)&#10;    - new initial contaminant cut tests and implementation (E(B-V), color cuts with DECALS DR10)&#10;    - new SED fitting using DECALS DR10 photometry (new changes) and DELVE DR2 photometry (as it was before)&#10;    &#10;    New folders created&#10;    - spectra and colors of new empirical templates&#10;    - several test codes&#10;    - query codes and results for DECALS DR10&#10;    - query tables of all known QSOs and BDs with different photometry, E(B-V)&#10;    - cutting initial contaminants analysis for each cutting conditions&#10;    - some modification on SED fitting code itself&#10;    - new catalog version ----&gt; results_4most/prioritization_delve_decals_cuts.dat or .fits (with README_prioritization_delve_decals.txt)" />
+    <option name="LAST_COMMIT_MESSAGE" value=" New version of High_z_qso_candidates catalog added&#10;    &#10;    - more tests with known QSOs (Fan+2022,Flesch+2023,Yang+2023)&#10;    - more tests with known BDs (Bañados+2016)&#10;    - SED tests with empirical templates of BDs (provided from CM)&#10;    - new initial contaminant cut tests and implementation (E(B-V), color cuts with DECALS DR10)&#10;    - new SED fitting using DECALS DR10 photometry (new changes) and DELVE DR2 photometry (as it was before)&#10;    &#10;    New folders created&#10;    - spectra and colors of new empirical templates&#10;    - several test codes&#10;    - query codes and results for DECALS DR10&#10;    - query tables of all known QSOs and BDs with different photometry, E(B-V)&#10;    - cutting initial contaminants analysis for each cutting conditions&#10;    - some modification on SED fitting code itself&#10;    - new catalog version ----&gt; results_4most/prioritization_delve_decals_cuts.dat or .fits (with README_prioritization_delve_decals.txt)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

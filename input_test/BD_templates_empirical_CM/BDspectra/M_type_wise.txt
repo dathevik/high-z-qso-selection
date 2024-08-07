@@ -1,0 +1,27 @@
+#-----------------------
+# Colors of brown dwarf templates (M,T,L)
+# Magnitudes are wise filters
+# All magnitudes are in Vega system
+#----------------------
+#
+# Sp.T r_DECALS	W1  W2
+#
+  M4   10.3829	9.428 9.258
+  M5    9.7092	5.427 5.257
+  M6 	8.9041	5.864 5.654
+  M7 	9.2693	8.566 8.326
+  M8 	8.2882	8.505 8.245
+  M9 	8.9258	10.744 10.204
+
+#-----------------------
+# Colors of brown dwarf templates (M,T,L)
+# Fluxes are wise filters
+# All fluxes are in mJy
+
+# Sp.T 	W1  	W2
+M4	11.200  12.368 
+M5	515.288 571.998 
+M6	320.280 362.298 
+M7	18.730  22.234 
+M8	19.967  24.500 
+M9	5.379   7.964 

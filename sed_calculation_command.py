@@ -359,10 +359,15 @@ if __name__ == '__main__':
     QSO_Chi2_temp_c = fits.Column(name='QSO_z', array=QSO_Chi2_temp_l, format='F')
     QSO_emline_c = fits.Column(name='QSO_EMline', array=QSO_emline_l, format='F')
     R_chi_c = fits.Column(name='R_chi2_best', array=ratio, format='F')
-
+    r_flux = data_obj.columns[6]
+    i_flux = data_obj.columns[8]
+    z_flux = data_obj.columns[10]
+    r_flux_c = fits.Column(name='r_flux', array=r_flux, format='F')
+    i_flux_c = fits.Column(name='i_flux', array=i_flux, format='F')
+    z_flux_c = fits.Column(name='z_flux', array=z_flux, format='F')
     t_out = fits.BinTableHDU.from_columns(
         [ls_id_c, ra_c, dec_c, BD_min_vec_c, BD_Chi2_temp_c, QSO_min_vec_c, QSO_Chi2_temp_c, R_chi_c, F_test_c, BIC_c, QSO_ebv_c,
-         QSO_emline_c, num_points_c, num_par_c])
+         QSO_emline_c, num_points_c, num_par_c, r_flux_c, i_flux_c, z_flux_c])
     name_t_out = os.path.abspath(f'output_test/{argument}_results.fits')
     name_t_out_csv = os.path.abspath(f'output_test/{argument}_results.csv')
     t_out.writeto(name_t_out, overwrite=True)

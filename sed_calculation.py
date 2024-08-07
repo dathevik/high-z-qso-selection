@@ -33,7 +33,7 @@ def flux_from_cgs_to_mJy(flux_cgs, ll):
 
 # ------------------------------- Main code ---------------------------------
 # I: Define the path and print the data in the created directory
-obj_path = os.path.abspath('input_test/test_no_fit.dat')
+obj_path = os.path.abspath('input_test/ARAA_decals_vhs_wise_fluxes.dat')
 BD_temp_path = os.path.abspath('input_test/BDRA_fluxes_mJy_202301.dat')
 QSO_temp_path = os.path.abspath('input_test/Selsing+Matt_temp.dat')
 QSO_spec_path = os.path.abspath('input_test/Selsing2015.dat')

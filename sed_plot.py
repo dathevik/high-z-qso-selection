@@ -53,15 +53,15 @@ output_file = os.path.abspath('output_test/results.csv')
 
 
 # Input the information
-ls_id = input("Input the name of object ")
-ls_id = int(ls_id)
+ls_id = input("Input the name of object").strip()
+ls_id = str(ls_id)
 input_file_name = input("Input the name of catalog ")
 input_objects_path = os.path.abspath('input_test/'+input_file_name)
 
 print("READING INPUT CATALOG:", input_objects_path, "FILE")
 data_fil = ascii.read(input_objects_path)
-# print(data_fil)
 id = data_fil.columns[0]
+print(id)
 redshift = data_fil.columns[3]
 
 # IIa : Make the vector arrays for Brown Dwarf templates
@@ -178,7 +178,7 @@ vec_fluxe_obs = []
 print(f"CHECKING {ls_id} OBJECT IN {input_file_name} CATALOG ")
 
 for i in range(len(id)):
-    if ls_id == id[i]:
+    if ls_id == str(id[i]):
         print(f"{ls_id} OBJECT is FOUND in {input_file_name} CATALOG")
         object_name.append(id[i])
         data.append(data_fil[i])
@@ -282,13 +282,13 @@ for i in range(len(id)):
             bdRA_fmJy_best = flux_from_cgs_to_mJy(bdRA_f_best, bdRA_l_fin)
             plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="#836853",
                         label=f"Best BD template ({BD_Chi2_min_temp})",
-                        zorder=5)
+                        zorder=5, facecolor='none')
             plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="#004987",
-                        label=f"Best QSO template (z={QSO_Chi2_min_z})",
-                        zorder=5)
+                        label=f"Best QSO template (z={np.around(QSO_Chi2_min_z, decimals=2)})",
+                        zorder=5, facecolor='none')
             plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='#FCD12A',
                          label=f'Observed spectra with z={object_redshift}')
-            plt.plot(w_rest, flux_mJY_best, color="#a7bed3", label=f'Quasar spectrum with z={QSO_Chi2_min_z}', zorder=0)
+            plt.plot(w_rest, flux_mJY_best, color="#a7bed3", label=f'Quasar spectrum with z={np.around(QSO_Chi2_min_z, decimals=2)}', zorder=0)
             plt.plot(bdRA_l_fin, bdRA_fmJy_best, color="#dab894", label=f'Brown Dwarf spectrum with {BD_Chi2_min_temp}',
                      zorder=0)
             plt.legend(loc="upper right")
@@ -325,25 +325,25 @@ for i in range(len(id)):
             bdRA_fmJy_best = flux_from_cgs_to_mJy(bdRA_f_best, bdRA_l_fin)
             plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="#836853",
                         label=f"Best BD template ({BD_Chi2_min_temp})",
-                        zorder=5)
+                        zorder=5, facecolor='none')
             plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="#004987",
                         label=f"Best QSO template (z={QSO_Chi2_min_z})",
-                        zorder=5)
+                        zorder=5, facecolor='none')
             plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='#FCD12A',
-                         label=f'Observed spectra with z={object_redshift}')
-            plt.plot(wave, flux_mJY_best*1e6, color="#a7bed3", label=f'Quasar spectrum with z={QSO_Chi2_min_z}', zorder=0)
-            plt.plot(bdRA_l_fin, bdRA_fmJy_best, color="#dab894", label=f'Brown Dwarf spectrum with {BD_Chi2_min_temp}',
-                     zorder=0)
-            plt.legend(loc="upper right")
+                         label=f'Initial Flux')
+            plt.plot(wave, flux_mJY_best*1e6, color="#a7bed3", zorder=0)
+            plt.plot(bdRA_l_fin, bdRA_fmJy_best, color="#dab894",zorder=0)
+            plt.legend(loc="upper left")
             plt.xlabel("Central Wavelength (Å)")
             plt.ylabel("Flux (mJy)")
             plt.xlim(0, 55000)
-            plt.title(f"BD and QSO models comparison with {ls_id} object")
+#            plt.title(f"BD and QSO models comparison with {ls_id} object")
             plt.savefig(f"output_test/{ls_id}_BD_QSO_best_models.png", dpi=160)
             plt.close()
-        # else:print(f"{ls_id} OBJECT is NOT FOUND in {input_file_name} CATALOG")
-#
-# # # Plotting the QSO best model
+
+
+
+# Plotting the QSO best model
 # # w_rest = np.arange(900.,75000,10)
 # # spec_f = np.array(data_qso_spec)
 # # wave = data_qso_spec.columns[0]
@@ -380,24 +380,26 @@ for i in range(len(id)):
 # #
 # #
 # # # Plotting the best BD and QSO models
-# # plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="c", label=f"Best BD template ({BD_Chi2_min_temp})")
-# # plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="m", label=f"Best QSO template (z={QSO_Chi2_min_z})")
-# # plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='b', label="Observed spectra with errors")
-# # plt.legend(loc="upper right")
-# # plt.xlabel("Central Wavelength (Å)")
-# # plt.ylabel("Flux (mJy)")
+#plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="c", label=f"Best BD template ({BD_Chi2_min_temp})")
+#plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="m", label=f"Best QSO template (z={QSO_Chi2_min_z})")
+#plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='b', label="Observed spectra with errors")
+#plt.legend(loc="upper left")
+#plt.xlabel("Central Wavelength (Å)")
+#plt.ylabel("Flux (mJy)")
+#plt.show()
 # # plt.savefig("best_models.png", dpi=160)
 # # plt.close()
 # #
 # #
 # # # Plotting the best BD and QSO models with the IGM spectrum
-# # plt.plot(bdRA_l, bdRA_fmJy_best, color="y",  label=f'Brown Dwarf spectrum with {BD_Chi2_min_temp}')
-# # plt.plot(w_rest, flux_mJY_best, color="g", label=f'Quasar spectrum with z={QSO_Chi2_min_z}')
-# # plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="c", label=f"Best BD template ({BD_Chi2_min_temp})")
-# # plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="m", label=f"Best QSO template (z={QSO_Chi2_min_z})")
-# # plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='b', label="Observed spectra with errors")
-# # plt.legend(loc="upper right")
-# # plt.xlabel("Central Wavelength (Å)")
-# # plt.ylabel("Flux (mJy)")
+#plt.plot(bdRA_l, bdRA_fmJy_best, color="y",  label=f'Brown Dwarf spectrum with {BD_Chi2_min_temp}')
+#plt.plot(w_rest, flux_mJY_best, color="g", label=f'Quasar spectrum with z={QSO_Chi2_min_z}')
+#plt.scatter(ll_vec_best, vec_flux_model_BD_best, color="c", label=f"Best BD template ({BD_Chi2_min_temp})")
+#plt.scatter(ll_vec_best, vec_flux_model_QSO_best, color="m", label=f"Best QSO template (z={QSO_Chi2_min_z})")
+#plt.errorbar(ll_vec_best, vec_flux_obs, yerr=vec_fluxe_obs, fmt='o', color='b', label="Observed spectra with errors")
+#plt.legend(loc="upper left")
+#plt.xlabel("Central Wavelength (Å)")
+#plt.ylabel("Flux (mJy)")
+#plt.show()
 # # plt.savefig("BD_QSO_best_models.png", dpi=160)
 # # plt.close()
