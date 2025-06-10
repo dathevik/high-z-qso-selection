@@ -1,0 +1,32 @@
+# System files
+.DS_Store
+.idea/
+__pycache__/
+*.pyc
+
+# Temporary data and output
+paper/
+output_catalogs/
+qso_bd_samples/
+new_cut_all/
+new_sed_inputs/
+sed_run_fluxes/
+test_prio1_with_decals/
+query/query_results/
+results_4most/PUC_test_old/
+results_4most/results_all_chunks_new/
+
+# Large data files that should be stored elsewhere
+*.fits
+*.csv
+*.dat
+*.png
+*.pdf
+
+# Keep specific important data files
+!input_test/cutting_initial_contaminants/wise_cut/BD_wise_SpT.dat
+!input_test/cutting_initial_contaminants/extended_class/delve_class_z_sdss12.dat
+
+# New additions
+paper/
+output_catalogs/ 
