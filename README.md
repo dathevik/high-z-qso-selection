@@ -1,4 +1,4 @@
-# qso-bd-selection
+# Selection of high redshift quasars (z > 4.5)
 
 This repository is for the 4MOST/CHANGES project, focusing on high-redshift quasar selection using SED fitting and color-based cuts. The workflow is modular, with each major step in a dedicated folder.
 
