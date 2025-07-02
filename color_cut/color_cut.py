@@ -7,12 +7,12 @@ import astropy.units as u
 # Set the style for publication-quality plots
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams['font.family'] = 'serif'
-plt.rcParams['font.size'] = 14
-plt.rcParams['axes.labelsize'] = 16
-plt.rcParams['axes.titlesize'] = 18
-plt.rcParams['xtick.labelsize'] = 14
-plt.rcParams['ytick.labelsize'] = 14
-plt.rcParams['legend.fontsize'] = 14
+plt.rcParams['font.size'] = 20
+plt.rcParams['axes.labelsize'] = 20
+plt.rcParams['axes.titlesize'] = 20
+plt.rcParams['xtick.labelsize'] = 20
+plt.rcParams['ytick.labelsize'] = 20
+plt.rcParams['legend.fontsize'] = 20
 plt.rcParams['figure.figsize'] = [12, 10]
 plt.rcParams['axes.grid'] = True
 plt.rcParams['grid.alpha'] = 0.3
@@ -72,7 +72,7 @@ r_mag_qso = data_araa.columns[0]
 i_mag_qso = data_araa.columns[1]
 redshift_qso = data_araa.columns[9]
 ri_mag_qso = r_mag_qso - i_mag_qso
-plt.scatter(redshift_qso, ri_mag_qso, s=150, color=qso_color, alpha=0.7, label='F23 Sample', marker='*', edgecolor='black')
+plt.scatter(redshift_qso, ri_mag_qso, s=250, color=qso_color, alpha=0.7, label='F23 Sample', marker='*', edgecolor='black')
 
 # Plot Yang 2023 quasar sample
 yang_path = os.path.abspath('yang_results.dat')
@@ -124,15 +124,15 @@ plt.plot([4.5, 6.0, 6.0, 4.5, 4.5], [1.3, 1.3, 4.0, 4.0, 1.3], 'k--', linewidth=
 ax.grid(True, linestyle='--', alpha=0.3)
 
 # Improve axis labels
-plt.xlabel('Redshift', fontsize=16)
-plt.ylabel('r$_{delve}$ - i$_{delve}$', fontsize=16)
+plt.xlabel('Redshift', fontsize=20)
+plt.ylabel('r$_{delve}$ - i$_{delve}$', fontsize=20)
 
 # Set plot limits
 plt.xlim(4.5, 7)
 plt.ylim(0, 4)
 
 # Improve legend
-plt.legend(fontsize=10, loc='upper right', frameon=True, framealpha=0.9, ncol=1)
+plt.legend(fontsize=16, loc='upper right', frameon=True, framealpha=0.9, ncol=1)
 
 # Add minor grid lines
 ax.minorticks_on()

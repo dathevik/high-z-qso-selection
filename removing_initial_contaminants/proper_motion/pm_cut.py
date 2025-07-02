@@ -3,9 +3,10 @@ import matplotlib.pyplot as plt
 from astropy.io import ascii
 
 # Define colors
-color_QSO_1 = 'green'  # F23
-color_QSO_2 = 'blue'   # Fl23
-color_QSO_3 = 'red'    # Y23
+color_QSO_1 = "#FF0000"  # F23
+color_QSO_2 = "#0000FF"   #  Fl23
+color_QSO_3 = "#FFA500"     # Y23
+color_BD = "#008000"  
 
 # Read data
 data_qso_milliquas = ascii.read('proper_motion_milliquas.dat')
@@ -34,13 +35,13 @@ pm_dec_err_bd = data_bd["pm_dec_err"]
 # Scatter plots
 plt.figure(figsize=(12, 6), dpi=300)
 plt.grid(True, linestyle='--', alpha=0.3)
-plt.scatter(pm_ra_bd/pm_ra_err_bd, pm_dec_bd/pm_dec_err_bd, label="BD Sample", s=20, alpha=0.6, marker="o")
-plt.scatter(pm_ra_milliquas/pm_ra_err_milliquas, pm_dec_milliquas/pm_dec_err_milliquas, label="Fl23 Sample", s=10, alpha=0.6, marker="o")
-plt.scatter(pm_ra_yang/pm_ra_err_yang, pm_dec_yang/pm_dec_err_yang, label="Y23 Sample", s=10, alpha=0.6, marker="o")
+plt.scatter(pm_ra_bd/pm_ra_err_bd, pm_dec_bd/pm_dec_err_bd, label="BD Sample", s=60, alpha=0.4, marker="o", c=color_BD)
+plt.scatter(pm_ra_milliquas/pm_ra_err_milliquas, pm_dec_milliquas/pm_dec_err_milliquas, label="Fl23 Sample", s=40, alpha=0.2, marker="^", c=color_QSO_3)
+plt.scatter(pm_ra_yang/pm_ra_err_yang, pm_dec_yang/pm_dec_err_yang, label="Y23 Sample", s=160, alpha=0.3, marker="*", c=color_QSO_2)
 
 # Labels
-plt.xlabel("μₐ/σₐ", fontsize=18)
-plt.ylabel("μᵧ/σᵧ", fontsize=18)
+plt.xlabel("μₐ/σₐ", fontsize=20)
+plt.ylabel("μᵧ/σᵧ", fontsize=20)
 
 # Drawing the square for proper motion cut
 square_x = [-2, 2, 2, -2, -2]
@@ -48,13 +49,13 @@ square_y = [-2, -2, 2, 2, -2]
 plt.plot(square_x, square_y, color='gray', linestyle='--', linewidth=1.5, label='Proper Motion cut')
 
 # Legend
-plt.legend(loc="upper right", fontsize=18)
+plt.legend(loc="upper right", fontsize=20)
 
 # Limits
 plt.ylim(-10, 10)
 plt.xlim(-10, 10)
-plt.yticks([-10, -5, 0, 5, 10], fontsize=18)
-plt.xticks([-10, -5, 0, 5, 10], fontsize=18)
+plt.yticks([-10, -5, 0, 5, 10], fontsize=20)
+plt.xticks([-10, -5, 0, 5, 10], fontsize=20)
 
 # Count objects outside the square
 out_milliquas = np.sum((pm_ra_milliquas/pm_ra_err_milliquas < -2) | (pm_ra_milliquas/pm_ra_err_milliquas > 2) |

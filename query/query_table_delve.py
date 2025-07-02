@@ -36,7 +36,7 @@ def parse_arguments():
     return parser.parse_args()
 
 
-def search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,  vhs_dr5_important):
+def search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,  decals_dr10_important):
     print("Checking the " + str(survey_name) + "table")
 
     all_results = []
@@ -44,16 +44,16 @@ def search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,
     for ii in range(len(ra_s_min)):
         print("======= Searching", name_s[ii])
 
-        qq = 'SELECT ' + vhs_dr5_important
+        qq = 'SELECT ' + decals_dr10_important
         qq += ' FROM '
         qq += survey_name
-        qq += ' WHERE  ra2000 > ('
+        qq += ' WHERE  ra > ('
         qq += str(ra_s_min[ii])
-        qq += ') AND ra2000 < ('
+        qq += ') AND ra < ('
         qq += str(ra_s_max[ii])
-        qq += ') AND dec2000 > ('
+        qq += ') AND dec > ('
         qq += str(dec_s_min[ii])
-        qq += ') AND dec2000 <('
+        qq += ') AND dec <('
         qq += str(dec_s_max[ii])
         qq += ')'
         print("Query:", qq)
@@ -62,7 +62,7 @@ def search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,
         all_results.append(response)
 
     combined_results = pd.concat(all_results, ignore_index=True)
-    output_filename = 'vhs_Laura.csv'
+    output_filename = 'decals_Franz_prior2.csv'
     combined_results.to_csv(output_filename, index=False)
     print(f"Results saved to {output_filename}")
 
@@ -85,15 +85,15 @@ if __name__ == '__main__':
     dec_s_min = dec_s_deg - 1. / 3600.
     dec_s_max = dec_s_deg + 1. / 3600.
 
-    survey_name = 'vhs_dr5.vhs_cat_v3'
+    survey_name = 'ls_dr10.tractor'
 
     # -----------------------------------------DELVE Survey table----------------------------
     # ---coordinates
     # des_dr2_important = survey_name_des + '.ra as ra_des_dr2,' + survey_name_des + '.dec as dec_des_dr2, '
-    #decals_dr10_important = survey_name_decals + '.ra as ra_decals,' + survey_name_decals + '.dec as dec_decals, '
+    decals_dr10_important = survey_name + '.ra as ra_decals,' + survey_name + '.dec as dec_decals, '
     # delve_dr2_important = survey_name_delve + '.ra as ra_delve,' + survey_name_delve + '.dec as dec_delve, '
     # gaia_dr3_important = survey_name_gaia+'.ra as ra_gaia_dr3,'+survey_name_gaia+'.dec as dec_gaia_dr3, '
-    vhs_dr5_important = survey_name+'.ra2000 as ra2000,'+survey_name+'.dec2000 as dec2000, '
+    #vhs_dr5_important = survey_name+'.ra2000 as ra2000,'+survey_name+'.dec2000 as dec2000, '
     #allwise_important = survey_name +'.ra as ra,'+ survey_name+'.dec as dec, '
     # ----magnitudes
     # --mag_auto
@@ -105,23 +105,23 @@ if __name__ == '__main__':
     # des_dr2_important += survey_name_des + '.mag_auto_z as mag_auto_z, '
     # des_dr2_important += survey_name_des + '.magerr_auto_z as magerr_auto_z '
     # gaia_dr3_important += survey_name_gaia + '.source_id as source_id, '
-    #decals_dr10_important += survey_name_decals + '.ls_id as ls_id, '
-    #decals_dr10_important += survey_name_decals + '.mag_g as mag_g, '
-    #decals_dr10_important += survey_name_decals + '.snr_g as snr_g, '
-    #decals_dr10_important += survey_name_decals + '.mag_r as mag_r, '
-    #decals_dr10_important += survey_name_decals + '.snr_r as snr_r, '
-    #decals_dr10_important += survey_name_decals + '.mag_i as mag_i, '
-    #decals_dr10_important += survey_name_decals + '.snr_i as snr_i, '
-    #decals_dr10_important += survey_name_decals + '.mag_z as mag_z, '
-    #decals_dr10_important += survey_name_decals + '.snr_z as snr_z '
-    vhs_dr5_important += survey_name + '.ypetromag as ypetromag, '
-    vhs_dr5_important += survey_name + '.ypetromagerr as ypetromagerr, '
-    vhs_dr5_important += survey_name + '.jpetromag as jpetromag, '
-    vhs_dr5_important += survey_name + '.jpetromagerr as jpetromagerr, '
-    vhs_dr5_important += survey_name + '.hpetromag as hpetromag, '
-    vhs_dr5_important += survey_name + '.hpetromagerr as hpetromagerr, '
-    vhs_dr5_important += survey_name + '.kspetromag as kspetromag, '
-    vhs_dr5_important += survey_name + '.kspetromagerr as kspetromagerr '
+    decals_dr10_important += survey_name + '.ls_id as ls_id, '
+    decals_dr10_important += survey_name + '.mag_g as mag_g, '
+    decals_dr10_important += survey_name + '.snr_g as snr_g, '
+    decals_dr10_important += survey_name + '.mag_r as mag_r, '
+    decals_dr10_important += survey_name + '.snr_r as snr_r, '
+    decals_dr10_important += survey_name + '.mag_i as mag_i, '
+    decals_dr10_important += survey_name + '.snr_i as snr_i, '
+    decals_dr10_important += survey_name + '.mag_z as mag_z, '
+    decals_dr10_important += survey_name + '.snr_z as snr_z '
+    # vhs_dr5_important += survey_name + '.ypetromag as ypetromag, '
+    # vhs_dr5_important += survey_name + '.ypetromagerr as ypetromagerr, '
+    # vhs_dr5_important += survey_name + '.jpetromag as jpetromag, '
+    # vhs_dr5_important += survey_name + '.jpetromagerr as jpetromagerr, '
+    # vhs_dr5_important += survey_name + '.hpetromag as hpetromag, '
+    # vhs_dr5_important += survey_name + '.hpetromagerr as hpetromagerr, '
+    # vhs_dr5_important += survey_name + '.kspetromag as kspetromag, '
+    # vhs_dr5_important += survey_name + '.kspetromagerr as kspetromagerr '
     # allwise_important += survey_name + '.w1mpro as w1mpro, '
     # allwise_important += survey_name + '.w1sigmpro as w1sigmpro, '
     # allwise_important += survey_name + '.w2mpro as w2mpro, '
@@ -144,5 +144,5 @@ if __name__ == '__main__':
     #    gaia_dr3_important += survey_name_gaia + '.phot_rp_mean_flux as phot_rp_mean_flux_gaia, '
     #    gaia_dr3_important += survey_name_gaia + '.phot_rp_mean_flux_error as phot_rp_mean_flux_error_gaia, '
     #    gaia_dr3_important += survey_name_gaia + '.phot_rp_mean_mag as phot_rp_mean_mag_gaia '
-    search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,  vhs_dr5_important)
+    search_survey(ra_s_min, ra_s_max, dec_s_min, dec_s_max, survey_name, name_s,  decals_dr10_important)
 

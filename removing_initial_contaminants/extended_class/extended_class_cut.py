@@ -27,15 +27,15 @@ plt.hist(ext_z_yang, bins=bins, edgecolor='blue', align='left', color='lightblue
 plt.hist(ext_z_araa, bins=bins, edgecolor='red', align='left', color='pink', alpha=0.4, histtype='stepfilled', stacked='True', hatch='----', label='F23 Sample')
 plt.hist(ext_z_sdss, bins=bins, edgecolor='purple', align='left', color='lavender', alpha=0.7, histtype='stepfilled', stacked='True', hatch='++', label='Galaxies')
 
-plt.xticks([-1, 0, 1, 2, 3], fontsize=18)
+plt.xticks([-1, 0, 1, 2, 3], fontsize=20)
 plt.xlim(-1, 4)
 plt.ylim(0, 4000)
 
-plt.yticks([0, 1000, 2000, 3000, 4000], fontsize=18)
+plt.yticks([0, 1000, 2000, 3000, 4000], fontsize=20)
 
-plt.xlabel('extended_class_z_delve', fontsize=18)
-plt.ylabel('Frequency', fontsize=18)
-plt.legend(loc="upper right", fontsize=18, framealpha=0.8)
+plt.xlabel('extended_class_z_delve', fontsize=20)
+plt.ylabel('Frequency', fontsize=20)
+plt.legend(loc="upper right", fontsize=20, framealpha=0.8)
 
 plt.tight_layout()
 plt.savefig("QSO_BD_extended_z.png")

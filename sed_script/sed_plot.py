@@ -305,7 +305,7 @@ for i in range(len(id)):
             bdRA_f_best = (bd_md_array.columns[BD_Chi2_min_ind] / bdRA_l_fin) * a_BD_best
             bdRA_fmJy_best = flux_from_cgs_to_mJy(bdRA_f_best, bdRA_l_fin)
             plt.figure(figsize=(12, 6), dpi=300)
-            plt.rcParams.update({'font.size': 14})
+            plt.rcParams.update({'font.size': 18})
             plt.rcParams['axes.linewidth'] = 1.5
             plt.rcParams['xtick.major.width'] = 1.5
             plt.rcParams['ytick.major.width'] = 1.5
@@ -354,9 +354,9 @@ for i in range(len(id)):
                      label='BD model spectrum',
                      zorder=0, linewidth=2)
  
-            plt.legend(loc="upper right", frameon=True, framealpha=0.9, fontsize=12)
-            plt.xlabel("Central Wavelength (Å)", fontsize=14)
-            plt.ylabel("Log Flux (mJy)", fontsize=14)
+            plt.legend(loc="upper right", frameon=True, framealpha=0.9, fontsize=18)
+            plt.xlabel("Central Wavelength (Å)", fontsize=18)
+            plt.ylabel("Log Flux (mJy)", fontsize=18)
             plt.xlim(0, 55000)
             # Set y-axis limits with upper limit at 1 mJy
             ymin = min(np.min(vec_flux_obs), np.min(vec_flux_model_BD_best), np.min(vec_flux_model_QSO_best)) * 0.8
@@ -386,7 +386,7 @@ for i in range(len(id)):
             bdRA_f_best = (bd_md_array.columns[BD_Chi2_min_ind] / bdRA_l_fin) * a_BD_best
             bdRA_fmJy_best = flux_from_cgs_to_mJy(bdRA_f_best, bdRA_l_fin)
             plt.figure(figsize=(12, 6), dpi=300)
-            plt.rcParams.update({'font.size': 14})
+            plt.rcParams.update({'font.size': 18})
             plt.rcParams['axes.linewidth'] = 1.5
             plt.rcParams['xtick.major.width'] = 1.5
             plt.rcParams['ytick.major.width'] = 1.5
@@ -435,9 +435,9 @@ for i in range(len(id)):
                      label='BD model spectrum',
                      zorder=0, linewidth=2)
 
-            plt.legend(loc="upper left", frameon=True, framealpha=0.9, fontsize=12)
-            plt.xlabel("Central Wavelength (Å)", fontsize=14)
-            plt.ylabel("Log Flux (mJy)", fontsize=14)
+            plt.legend(loc="upper right", frameon=True, framealpha=0.9, fontsize=14)
+            plt.xlabel("Central Wavelength (Å)", fontsize=18)
+            plt.ylabel("Log Flux (mJy)", fontsize=18)
             plt.xlim(0, 55000)
             # Set y-axis limits with upper limit at 1 mJy
             ymin = min(np.min(vec_flux_obs), np.min(vec_flux_model_BD_best), np.min(vec_flux_model_QSO_best)) * 0.8
@@ -489,23 +489,25 @@ plt.rcParams['axes.linewidth'] = 1.5
 
 # Convert flux values to log scale
 vec_flux_obs_log = np.log10(vec_flux_obs)
-vec_fluxe_obs_log = np.log10(vec_fluxe_obs)
+# Handle error bars - ensure they're positive and convert to log scale
+vec_fluxe_obs_positive = np.abs(vec_fluxe_obs)  # Ensure positive values
+vec_fluxe_obs_log = np.log10(vec_fluxe_obs_positive)
 vec_flux_model_log = np.log10(vec_flux_model) if 'vec_flux_model' in locals() else None
 
 # Plot data points with enhanced styling
-plt.scatter(ll_vec, vec_flux_obs_log, 
+plt.scatter(ll_vec_best, vec_flux_obs_log, 
             c='#1f77b4', alpha=0.6, label='Observed Flux', s=6, edgecolor='none')
-plt.errorbar(ll_vec, vec_flux_obs_log, yerr=vec_fluxe_obs_log,
+plt.errorbar(ll_vec_best, vec_flux_obs_log, yerr=vec_fluxe_obs_log,
              fmt='none', color='#1f77b4', alpha=0.4, capsize=3)
 
 # Plot template fluxes if available
 if vec_flux_model_log is not None:
-    plt.plot(ll_vec, vec_flux_model_log, 
+    plt.plot(ll_vec_best, vec_flux_model_log, 
              c='#d62728', alpha=0.7, label='Template Flux', linewidth=2)
 
 # Customize the plot
-plt.xlabel('Wavelength (Å)', fontsize=14, fontweight='bold')
-plt.ylabel('Log Flux (mJy)', fontsize=14, fontweight='bold')
+plt.xlabel('Wavelength (Å)', fontsize=18, fontweight='bold')
+plt.ylabel('Log Flux (mJy)', fontsize=18, fontweight='bold')
 plt.legend(fontsize=12, loc='upper right', frameon=True, framealpha=0.9)
 
 # Add grid lines
@@ -518,3 +520,46 @@ plt.tight_layout()
 plt.savefig(f"output_test/{ls_id}_sed_log.png", dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()
+
+# --- Test block: Plot SED for J000009.99-041626.09 from F23_fluxes_test.dat ---
+if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+    from astropy.io import ascii
+    import numpy as np
+
+    # Read the table
+    data = ascii.read('input_test/F23_fluxes_test.dat')
+
+    # Find the row for your object
+    obj_id = 'J000009.99-041626.09'
+    row = data[data['ls_id'] == obj_id][0]
+
+    # Central wavelengths for each band (Angstrom)
+    ll_vec = np.array([4798.35, 6407.49, 7802.49, 9144.63, 10201.36, 12325.13, 16473.96, 22045.77, 33791.88, 46292.94])
+
+    # Extract fluxes and errors for all 10 bands
+    vec_flux_row = np.array([
+        row['g_prime_delve'], row['r_prime_delve'], row['i_prime_delve'], row['z_prime_delve'],
+        row['vista.vircam.Y_vhs'], row['vista.vircam.J_vhs'], row['vista.vircam.H_vhs'], row['vista.vircam.Ks_vhs'],
+        row['WISE1'], row['WISE2']
+    ], dtype=float)
+
+    vec_fluxe_row = np.array([
+        row['g_prime_err_delve'], row['r_prime_err_delve'], row['i_prime_err_delve'], row['z_prime_err_delve'],
+        row['vista.vircam.Y_err_vhs'], row['vista.vircam.J_err_vhs'], row['vista.vircam.H_err_vhs'], row['vista.vircam.Ks_err_vhs'],
+        row['WISE1_err'], row['WISE2_err']
+    ], dtype=float)
+
+    # Mask for valid fluxes
+    mask_nan = ~np.isnan(vec_flux_row)
+
+    # Plot
+    plt.figure(figsize=(12,6))
+    plt.errorbar(ll_vec[mask_nan], vec_flux_row[mask_nan], yerr=vec_fluxe_row[mask_nan], fmt='o', color='navy', capsize=3)
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.xlabel('Wavelength (Angstrom)')
+    plt.ylabel('Flux')
+    plt.title(obj_id)
+    plt.tight_layout()
+    plt.show()

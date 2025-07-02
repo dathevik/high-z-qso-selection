@@ -16,8 +16,8 @@ dustmaps.sfd.fetch()
 sfd = SFDQuery()
 
 # Read the .fits table
-input_filename = 'UDP_xRACS_ra_0_360.fits'  # Replace with your input filename
-output_filename = 'racs_sample_ebv'  # Replace with your output filename
+input_filename = 'output_catalogs/results_catalogs/final_TM.fits'  # Replace with your input filename
+output_filename = 'final_TM_ebv'  # Replace with your output filename
 with fits.open(input_filename) as hdul:
     data = hdul[1].data
 
