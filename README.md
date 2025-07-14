@@ -2,73 +2,101 @@
 
 This repository is for the 4MOST/CHANGES project, focusing on high-redshift quasar selection using SED fitting and color-based cuts. The workflow is modular, with each major step in a dedicated folder.
 
----
-#Algorithm Workflow
-Input Data (~420 million)
-        |
-        v
-+-------------------------------+
-| Removing Initial Contaminants | 
-| - extended_class_z_delve cut  |
-| - Proper motion cut           |
-| - gdelve cut                  |
-| - WISE color cut              |
-+-------------------------------+
-        |
-        v
-+-------------------+
-|   SED Fitting     |   
-|   (~13 million)   |
-+-------------------+
-        |
-        v
-+-------------------+
-|    Color Cut      |   
-| rdelve-idelve>1.3 |
-|   (~10 million)   |
-+-------------------+
-        |
-        v
-+-------------------+
-| Statistical Cuts  |
-| BIC>0 & Ftest>10  |
-| Ndatapoint>6      |
-|   (~930,000)      | 
-+-------------------+
-        |
-        v
-+-------------------+
-|  Prioritization   |
-| + PI Quality Cuts |
-|   (~24,500)       |
-+-------------------+
-        |
-        v
-+---------------------------------------------+
-| Crossmatch with DECaLS DR10                 |
-+---------------------------------------------+
-        |
-        v
-+---------------------------------------------+
-| SNR_gdecals < 3σ Detection Threshold        |
-+---------------------------------------------+
-        |                          |
-    With DECaLS                Without DECaLS
-    counterpart                 counterpart
-        |                          |
-        v                          v
-+-------------------+    +-------------------+
-| Use DECaLS DR10   |    | Use DELVE DR2     |
-| photometry        |    | photometry        |
-+-------------------+    +-------------------+
-        |                          |
-        +-----------+--------------+
-                    |
-                    v
-         +------------------------+
-         | Final Catalog: 6,125   | 
-         | sources                |      
-         +------------------------+
+# The selection flowchart
+
+```
+                    ┌─────────────────┐
+                    │   Input Data    │
+                    │   ~420 mil.     │
+                    └─────────┬───────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │   Removing      │
+                    │   Initial       │
+                    │ Contaminants    │
+                    └─────────┬───────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │   SED fitting   │
+                    │   ~ 13 mil.     │
+                    └─────┬───┬───────┘
+                          │   │
+                          │   ▼
+                          │ ┌─────────────────┐
+                          │ │   Color Cut     │
+                          │ └─────────┬───────┘
+                          │           │
+                          ▼           ▼
+                    ┌─────────────────┐
+                    │ Statistical     │
+                    │ Cuts            │
+                    │ ~ 10 mil.       │
+                    └─────────┬───────┘
+                              │
+                              ▼
+                    ╱─────────────────╲
+                   ╱  Prioritization   ╲
+                  ╱    ~ 930,000        ╲
+                 ╱_____________________╲
+                              │
+                              ▼
+                    ╲─────────────────╱
+                     ╲ Initial Output ╱
+                      ╲  ~ 24,500    ╱
+                       ╲_____________╱
+                              │
+                              ▼
+                        ◆─────────────────◆
+                       ╱ Crossmatch with   ╲
+                      ╱  DECaLS DR10.      ╲
+                     ╱   Detection of      ╲
+                    ╱    g_decals?         ╲
+                   ◆─────────────────────────◆
+                            │       │
+                          yes│       │no
+                             │       │
+                             ▼       ▼
+                   ┌─────────────────┐    ╭─────────────────╮
+                   │ SNR cut of      │    │ Sample with     │
+                   │ g_decals        │    │ DELVE DR2       │
+                   │ ~ 23,000        │    │ photometry      │
+                   └─────────┬───────┘    │ 1108 sources    │
+                             │            ╰─────────┬───────╯
+                             ▼                      │
+                   ╭─────────────────╮              │
+                   │ Sample with     │              │
+                   │ DECaLS DR10     │              │
+                   │ photometry      │              │
+                   │ 5017 sources    │              │
+                   ╰─────────┬───────╯              │
+                             │                      │
+                             ▼                      │
+                    ╱─────────────────╲              │
+                   ╱     Merging       ╲◄────────────┘
+                  ╱___________________╲
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │  Final catalog  │
+                    │  6125 sources   │
+                    └─────────────────┘
+```
+
+## Process Flow Description
+
+1. **Input Data** (~420 million sources) → Initial dataset
+2. **Removing Initial Contaminants** → Data cleaning step
+3. **SED fitting** (~13 million) → Spectral energy distribution analysis
+4. **Color Cut** + **Statistical Cuts** (~10 million) → Quality filtering
+5. **Prioritization** (~930,000) → Target selection
+6. **Initial Output** (~24,500) → Preliminary results
+7. **Crossmatch with DECaLS DR10** → Decision point for detection
+   - **Yes**: SNR cut of g_decals (~23,000) → DECaLS DR10 photometry (5017 sources)
+   - **No**: DELVE DR2 photometry (1108 sources)
+8. **Merging** → Combine both branches
+9. **Final catalog** (6125 sources) → Final output
 
 ## Folder Structure & Purposes
 
