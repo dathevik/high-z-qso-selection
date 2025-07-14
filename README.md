@@ -3,97 +3,72 @@
 This repository is for the 4MOST/CHANGES project, focusing on high-redshift quasar selection using SED fitting and color-based cuts. The workflow is modular, with each major step in a dedicated folder.
 
 ---
-
-## Algorithmic Workflow
-
-```
+#Algorithm Workflow
 Input Data (~420 million)
         |
         v
 +-------------------------------+
-| Removing Initial Contaminants | (removing_initial_contaminants/)
+| Removing Initial Contaminants | 
+| - extended_class_z_delve cut  |
+| - Proper motion cut           |
+| - gdelve cut                  |
+| - WISE color cut              |
 +-------------------------------+
         |
         v
 +-------------------+
-|   SED Fitting     |   (sed_script/)
+|   SED Fitting     |   
 |   (~13 million)   |
 +-------------------+
         |
         v
 +-------------------+
-|    Color Cut      |   (color_cut/)
+|    Color Cut      |   
+| rdelve-idelve>1.3 |
+|   (~10 million)   |
 +-------------------+
         |
         v
 +-------------------+
 | Statistical Cuts  |
-|   (~10 million)   | 
+| BIC>0 & Ftest>10  |
+| Ndatapoint>6      |
+|   (~930,000)      | 
 +-------------------+
         |
         v
 +-------------------+
 |  Prioritization   |
-|   (~930,000)      |
-+-------------------+
-        |
-        v
-+-------------------+
-|  Initial Output   |  
-|    (~19,000)      |  
+| + PI Quality Cuts |
+|   (~24,500)       |
 +-------------------+
         |
         v
 +---------------------------------------------+
-| Crossmatch with DECaLS DR10: g_decal Det.?  |
+| Crossmatch with DECaLS DR10                 |
++---------------------------------------------+
+        |
+        v
++---------------------------------------------+
+| SNR_gdecals < 3σ Detection Threshold        |
 +---------------------------------------------+
         |                          |
-      Yes                          No
+    With DECaLS                Without DECaLS
+    counterpart                 counterpart
         |                          |
         v                          v
 +-------------------+    +-------------------+
-|  SNR Cut          |    |  SNR Cut          |
-|  (~17,000)        |    |  (~17,000)        |
+| Use DECaLS DR10   |    | Use DELVE DR2     |
+| photometry        |    | photometry        |
 +-------------------+    +-------------------+
-        |                          |
-        v                          v
-+-------------------+    +-------------------+
-|   SED Fitting     |    |   SED Fitting     |
-|   (~3,200)        |    |   (~3,200)        |
-+-------------------+    +-------------------+
-        |                          |
-        v                          v
-+-------------------+    +-------------------+
-|   Color Cuts      |    |   Color Cuts      |
-+-------------------+    +-------------------+
-        |                          |
-        v                          v
-+-------------------+    +-------------------+
-| Statistical Cut   |    | Statistical Cut   |
-|   (~2,600)        |    |   (~2,600)        |
-+-------------------+    +-------------------+
-        |                          |
-        v                          v
-+-------------------------------+ +-------------------------------+
-| Sample with DECaLS DR10       | | Sample with DELVE DR2         |
-| photometry (1840 sources)     | | photometry (1314 sources)     |
-+-------------------------------+ +-------------------------------+
         |                          |
         +-----------+--------------+
                     |
                     v
-              +-------------+
-              |   Merging   |
-              +-------------+
-                    |
-                    v
          +------------------------+
-         | Final Catalog: 3154    | 
+         | Final Catalog: 6,125   | 
          | sources                |      
          +------------------------+
-```
-
----
 
 ## Folder Structure & Purposes
 
